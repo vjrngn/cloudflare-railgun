@@ -26,7 +26,7 @@ function pingOrigin () {
 
 function pingCloudflare () {
   $headers = [];
-  exec("curl -I https://anandguruprasad.com", $headers);
+  exec("curl -I https://www.anandguruprasad.com", $headers);
 
   $formattedHeaders = [];
   foreach ($headers as $index => $val) {
