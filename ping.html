@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>Anand Guruprasad </title>
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://unpkg.com/vue@2.0.5/dist/vue.js"></script>
 </head>
 <style> 
   body { margin-top: 75px;  }
@@ -63,54 +64,6 @@
     </div>
   </div>
 
-  <script src="https://unpkg.com/vue/dist/vue.js"></script>
-  <script>
-    var app = new Vue({
-      el: '#ping',
-      data: {
-        message: 'Hello',
-        errors: '',
-        type: '',
-        loading: false,
-        headers: null
-      },
-      computed: {
-        panelStyle () {
-          return this.type == 'origin' ? 'panel panel-primary' : 'panel panel-success'
-        }
-      },
-      methods: {
-        pingOrigin (e) {
-          this.type = 'origin';
-          this.loading = true;
-          this.headers = null;
-          fetch('/ping.php?type=origin').then(res => res.json()).then(headers => {
-            this.loading = false;
-            this.errors = '';
-            this.headers = headers;
-          }).catch(err => {
-            this.loading = false;
-            this.headers = null;
-            this.errors = 'Something went wrong with the request. Please try again.'
-          })
-        },
-        pingCloudflare (e) {
-          this.type = 'cloudflare';
-          this.loading = true;
-          this.errors = '';
-          this.headers = null;
-          fetch('/ping.php?type=cloudflare').then(res => res.json()).then(headers => {
-            this.loading = false;
-            this.errors = '';
-            this.headers = headers;
-          }).catch(err => {
-            this.loading = false;
-            this.headers = null;
-            this.errors = 'Something went wrong with the request. Please try again.'
-          })
-        }
-      }
-    })
-  </script>
+  <script src="/app.js"></script>
 </body>
 </html>
