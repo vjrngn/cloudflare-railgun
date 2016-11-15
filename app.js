@@ -17,7 +17,7 @@ var app = new Vue({
           this.type = 'origin';
           this.loading = true;
           this.headers = null;
-          fetch('/ping.php?type=origin').then(res => res.json()).then(headers => {
+          fetch('/test.php?type=origin').then(res => res.json()).then(headers => {
             this.loading = false;
             this.errors = '';
             this.headers = headers;
@@ -32,7 +32,7 @@ var app = new Vue({
           this.loading = true;
           this.errors = '';
           this.headers = null;
-          fetch('/ping.php?type=cloudflare').then(res => res.json()).then(headers => {
+          fetch('/test.php?type=cloudflare').then(res => res.json()).then(headers => {
             this.loading = false;
             this.errors = '';
             this.headers = headers;
